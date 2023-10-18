@@ -1,6 +1,6 @@
 {
   "name": "colisio",
-  "homepage": "https://colisio.github.io/colisio/profissionais",
+  "homepage": "https://colisio.github.io/colisio",
   "version": "1.6.2",
   "private": true,
   "dependencies": {
@@ -84,6 +84,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.0.0"
   }
 }
