@@ -81,7 +81,7 @@ const Servicos = () => {
     ];
 
     const enviarMensagem = (servico) => {
-        const numero = '+5581983487214';  // Substitua pelo número desejado
+        const numero = '+5581992376890';  // Substitua pelo número desejado
         const mensagem = encodeURIComponent(`Olá, tenho interesse no serviço *${servico}*, 
 poderia me ajudar me dando mais informações sobre como funciona os serviços de vocês?`);
         window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${mensagem}`);
@@ -89,7 +89,7 @@ poderia me ajudar me dando mais informações sobre como funciona os serviços d
 
     return (
         <>
-            <Head title="Pricing Table"></Head>
+            <Head title="Colisio | Servicos"></Head>
             <Content>
 
                 <Block size="lg">
@@ -124,7 +124,7 @@ poderia me ajudar me dando mais informações sobre como funciona os serviços d
                                                 <Button className="m-0" color="success" onClick={() => {
                                                     enviarMensagem(item.title)
                                                 }}>
-                                                    <Icon style={{ color: '#fff' }} name="whatsapp" />
+                                                    <Icon style={{ color: '#fff' }} name="curve-down-right" />
                                                     <span style={{ color: '#fff' }}>Tenho interesse</span>
                                                 </Button>
                                             </div>
