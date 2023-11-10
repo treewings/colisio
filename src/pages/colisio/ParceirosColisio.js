@@ -16,7 +16,7 @@ import {
     PreviewCard,
     ReactDataTable
 } from "../../components/Component";
-
+import viralizy from '../../images/agenciasParceiras/viralizy.jpg'
 import Icon from "../../components/icon/Icon";
 import Content from "../../layout/content/Content";
 import Head from "../../layout/head/Head";
@@ -43,21 +43,20 @@ const Colisio = () => {
     const enviarMensagem = (dados) => {
         console.log(dados)
         const numero = '+5581992376890';  // Substitua pelo número desejado
-        const mensagem = encodeURIComponent(`Olá, tenho interesse em contratar ${dados.nome}, 
-sobre demandas de ${dados.servico}, 
+        const mensagem = encodeURIComponent(`Olá, tenho interesse em contratar a Agência Parceira da Colisio, ${dados.nome},
 podemos conversar ?`);
         window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${mensagem}`);
         toggle()
         setDadosColiser(null)
     };
 
-    const getInitials = (nomeCompleto) => {
-        const nomes = nomeCompleto.split(' ');
-        if (nomes.length > 1) {
-            return (nomes[0][0] + nomes[1][0]).toUpperCase();
-        }
-        return nomes[0][0].toUpperCase();
-    }
+    // const getInitials = (nomeCompleto) => {
+    //     const nomes = nomeCompleto.split(' ');
+    //     if (nomes.length > 1) {
+    //         return (nomes[0][0] + nomes[1][0]).toUpperCase();
+    //     }
+    //     return nomes[0][0].toUpperCase();
+    // }
 
     const servicosSeparados = (servicos) => {
         const servicosSeparados = servicos.split(',')
@@ -172,7 +171,7 @@ podemos conversar ?`);
             descricao: '',
             portfolio: "viralizy.com.br",
             experiencia: "2 - 3 anos",
-            logo: 'https://drive.google.com/open?id=17t2stew__IFeZTHXTr_g9Yb7UyPn8Uvc'
+            logo: viralizy
         },
     ];
 
