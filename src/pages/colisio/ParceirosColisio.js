@@ -185,7 +185,7 @@ podemos conversar ?`);
                             <BlockTitle style={{ color: '#05B055' }}>Agências Parceiros</BlockTitle>
                             <BlockDes className="text-soft">
                                 <p>Tenha acesso rápido às Agências Parceiras.</p>
-                                <p>Não se preocupe com proficionais ou servições, com as agências parceiras você também terá o seu objetivo concluído.</p>
+                                <p>Não se preocupe com profissionais ou serviçõs, com as agências parceiras você também terá o seu objetivo concluído.</p>
                             </BlockDes>
                         </BlockContent>
                     </BlockBetween>
