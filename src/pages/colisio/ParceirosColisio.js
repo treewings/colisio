@@ -182,7 +182,7 @@ podemos conversar ?`);
                 <BlockHead size="lg" className='p-0' wide="sm">
                     <BlockBetween className="g-3">
                         <BlockContent>
-                            <BlockTitle style={{ color: '#05B055' }}>Agências Parceiros</BlockTitle>
+                            <BlockTitle style={{ color: '#05B055' }}>Agências Parceiras</BlockTitle>
                             <BlockDes className="text-soft">
                                 <p>Tenha acesso rápido às Agências Parceiras.</p>
                                 <p>Não se preocupe com profissionais ou serviçõs, com as agências parceiras você também terá o seu objetivo concluído.</p>
