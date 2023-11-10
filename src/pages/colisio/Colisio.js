@@ -89,9 +89,9 @@ podemos conversar ?`);
                     // console.log(row)
                 }}>
                     <div className="user-card">
-                        <UserAvatar theme='#000' text={getInitials(row.nome)} ></UserAvatar>
+                        <UserAvatar theme='dark' text={getInitials(row.nome)} ></UserAvatar>
                         <div className="user-info d-flex flex-column justify-content-start">
-                            <span className="tb-lead text-start">
+                            <span className="text-success tb-lead text-start">
                                 {row.nome}{" "}
                                 {/* <span
                                     className={`dot dot-${row.status === "Active" ? "success" : row.status === "Pending" ? "warning" : "danger"
@@ -535,6 +535,42 @@ podemos conversar ?`);
             portfolio: "https://instagram.com/gartner.designer?igshid=OGQ5ZDc2ODk2ZA==",
             experiencia: "+5 anos",
         },
+        {
+            id: 1,
+            nome: 'Vinícius tavares',
+            whatsapp: "81 988497615",
+            cidade: "Recife",
+            estado: "Pernambuco",
+            pais: 'Brasil',
+            servico: 'Designer, Desenvolvedor de Landing Page, Designer gráfico',
+            descricao: 'Web designer com foco de gerar atração visual, impacto, autoridade e é claro, Gerar resultados que convertem.',
+            portfolio: "https://www.instagram.com/viniciustdesigner/",
+            experiencia: "2 - 3 anos",
+        },
+        {
+            id: 1,
+            nome: 'Uéliton Oliveira ',
+            whatsapp: "79998134133",
+            cidade: "Aracajú",
+            estado: "Sergipe",
+            pais: 'Brasil',
+            servico: 'Gestor de Tráfego',
+            descricao: 'Trabalho fazendo anúncios online para ajudar as empresas aumentarem o faturamento.',
+            portfolio: "https://drive.google.com/drive/folders/1qVowdK_1KL2pMb1ab7sJCKo7_bvXz3lb",
+            experiencia: "1 - 2 anos",
+        },
+        {
+            id: 1,
+            nome: 'Igor Camilo',
+            whatsapp: "81996430651",
+            cidade: "Recife",
+            estado: "Pernambuco",
+            pais: 'Brasil',
+            servico: 'Copywritter, Gestor de Tráfego',
+            descricao: 'Atuo numa empresa que presta serviço de gestão de tráfego há mais de 1 ano. Crio, gerencio e analiso campanhas no Meta Ads e Google Ads; trabalho com tráfego para infoprodutos (lançamento e perpétuo), negócios locais e E-commerce. Tenho formação em Copywriting, mas sem atuação na área',
+            portfolio: "https://www.linkedin.com/in/igor-camilo-648892168?trk=contact-info",
+            experiencia: "1 - 2 anos",
+        },
     ];
 
     return (
@@ -544,7 +580,7 @@ podemos conversar ?`);
                 <BlockHead size="lg" className='p-0' wide="sm">
                     <BlockBetween className="g-3">
                         <BlockContent>
-                            <BlockTitle>Bem-vindos a Colisio</BlockTitle>
+                            <BlockTitle style={{color: '#05B055'}}>Bem-vindos a Colisio</BlockTitle>
                             <BlockDes className="text-soft">
                                 <p>Tenha acesso rápido aos COLISERs (profissionais de seu interesse), com isso economize tempo e burocracia nos serviços que você contrata.</p>
                             </BlockDes>
@@ -563,10 +599,10 @@ podemos conversar ?`);
                         <p className="text-soft mt-3 mb-0">
                             Caso queira buscar por um serviço sem COLISER (profissional) específico, clique abaixo:
                         </p>
-                        <Link to="/colisio/servicos" className="btn btn-dark d-flex justify-content-start col-lg-5" p='0' m='0' color="dark">
+                        <Link to="/colisio/servicos" style={{borderColor: ''}} className="btn btn-success d-flex justify-content-start col-lg-5" p='0' m='0' color="dark">
                             {/* <Button outline className="btn-dim d-flex justify-content-start" p='0' m='0' color="dark"> */}
-                                <Icon name="curve-down-right" />
-                                <span>Visualizar serviços disponíveis</span>
+                                <Icon style={{color: ''}} name="curve-down-right" />
+                                <span style={{color: ''}}>Visualizar serviços disponíveis</span>
                             {/* </Button> */}
                         </Link>
                     </BlockDes>

@@ -1,5 +1,5 @@
 import React from "react";
-import LogoLight2x from "../../images/colisio.png";
+import LogoLight2x from "../../images/colisio-preta.png";
 import LogoDark2x from "../../images/colisio.png";
 import {Link} from "react-router-dom";
 

@@ -31,8 +31,8 @@ const Sidebar = ({ fixed, className, ...props }) => {
 
   return (
     <>
-      <div className={classes}>
-        <div className="nk-sidebar-element nk-sidebar-head">
+      <div style={{backgroundColor: 'black', borderColor: 'black'}} className={classes}>
+        <div style={{borderColor: 'black'}} className="nk-sidebar-element nk-sidebar-head">
           <div className="nk-menu-trigger">
             <Toggle className="nk-nav-toggle nk-quick-nav-icon d-xl-none me-n2" icon="arrow-left" click={themeUpdate.sidebarVisibility} />
             <Toggle

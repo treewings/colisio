@@ -26,7 +26,7 @@ $menu-sub-link-gap-y: .375rem !default;
 $menu-sub-link-gap-x: $menu-link-gap-x !default;
 
 // Link color
-$menu-link-color-base:      lighten($base-text, 12%) !default;
+$menu-link-color-base:      lighten($cor-botao, 12%) !default;
 $menu-link-color-sub:       lighten($base-text, 12%) !default;
 $menu-link-color-hover:     lighten($accent-color, 5%) !default;
 $menu-border-color:         $border-color !default;
@@ -35,7 +35,7 @@ $menu-border-dark-color:    rgba($white, .12) !default;
 // Menu Icon
 $menu-icon-width-base:      $menu-icon-width !default;
 $menu-icon-font-size:       24px;
-$menu-icon-color-base:      $base-light !default;
+$menu-icon-color-base:      $cor-botao !default;
 $menu-icon-color-hover:     $accent-color !default;
 $menu-icon-width-small:     $menu-icon-width-sm !default;
 $menu-icon-font-size-small: 18px;

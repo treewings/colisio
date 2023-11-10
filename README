@@ -1,0 +1,4 @@
+O certificado SSL foi salvo em /etc/letsencrypt/live/colisio.co/fullchain.pem.
+A chave privada correspondente foi salva em /etc/letsencrypt/live/colisio.co/privkey.pem.
+O certificado irá expirar em 2024-02-08. No entanto, o Certbot configurou uma tarefa agendada para renovar o certificado automaticamente antes dessa data.
+O Certbot também configurou o Nginx para usar o novo certificado, atualizando a configuração em /etc/nginx/sites-enabled/default.

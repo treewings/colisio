@@ -1,8 +1,13 @@
 const menu = [
   {
     icon: "user-list",
-    text: "Nossos Profissionais",
+    text: "Coliser's",
     link: "/profissionais",
+  },
+  {
+    icon: "building",
+    text: "Agências Parceiras",
+    link: "/parceiros",
   },
   {
     icon: "clipboad-check",
@@ -14,8 +19,13 @@ const menu = [
 const menuBKP = [
   {
     icon: "user-list",
-    text: "Nossos Profissionais",
+    text: "Coliser's",
     link: "/profissionais",
+  },
+  {
+    icon: "building",
+    text: "Agências Parceiras",
+    link: "/parceiros",
   },
   {
     icon: "clipboad-check",
