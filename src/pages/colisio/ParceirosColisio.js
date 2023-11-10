@@ -86,7 +86,7 @@ podemos conversar ?`);
                     <div className="user-card">
                         {/* <UserAvatar theme='dark' text={getInitials(row.nome)} ></UserAvatar> */}
                         <span className="tb-product">
-                            <img src={row.logo} alt='' className="thumb" />
+                            <img style={{width: '200px'}} src={row.logo} alt='' className="thumb" />
                         </span>
                         <div className="user-info d-flex flex-column justify-content-start">
                             <span className="text-success tb-lead text-start">
@@ -96,12 +96,12 @@ podemos conversar ?`);
                                         } d-md-none`}
                                 ></span> */}
                             </span>
-                            {
+                            {/* {
                                 (row.servico).includes(',') === true ? (
                                     servicosSeparados(row.servico)
-                                ) :
-                                    <span className="d-flex justify-content-start">{row.servico}</span>
-                            }
+                                ) : */}
+                                    <span className="text-start">{row.descricao}</span>
+                            {/* } */}
                         </div>
                     </div>
                 </Button>
@@ -168,7 +168,7 @@ podemos conversar ?`);
             estado: "Ceará",
             pais: 'Brasil',
             servico: "Social Média, Designer, Desenvolvedor de Landing Page, Designer gráfico, Gestor de Tráfego, Fotógrafo, Filmmaker",
-            descricao: '',
+            descricao: 'Temos o uma metodologia que une o orgânico com o pago, trabalhando os dois da melhor maneira, assim gerando resultados expressivos.',
             portfolio: "viralizy.com.br",
             experiencia: "2 - 3 anos",
             logo: viralizy
@@ -182,10 +182,10 @@ podemos conversar ?`);
                 <BlockHead size="lg" className='p-0' wide="sm">
                     <BlockBetween className="g-3">
                         <BlockContent>
-                            <BlockTitle style={{ color: '#05B055' }}>Agências Parceiras</BlockTitle>
+                            <BlockTitle style={{ color: '#05B055' }}>Co.Agências</BlockTitle>
                             <BlockDes className="text-soft">
-                                <p>Tenha acesso rápido às Agências Parceiras.</p>
-                                <p>Não se preocupe com profissionais ou serviçõs, com as agências parceiras você também terá o seu objetivo concluído.</p>
+                                <p>Para projetos mais robustos e uma equipe multidisciplinar, você pode optar por uma agência para atendê-lo. 
+                                    Aqui na Colisio, as agências são selecionadas e estão disponíveis para você com o objetivo de melhor atender à sua demanda, seja ela qual for!</p>
                             </BlockDes>
                         </BlockContent>
                     </BlockBetween>

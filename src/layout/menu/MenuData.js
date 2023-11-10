@@ -1,36 +1,36 @@
 const menu = [
   {
     icon: "user-list",
-    text: "Coliser's",
+    text: "Colisers",
     link: "/profissionais",
+  },
+  {
+    icon: "clipboad-check",
+    text: "Escolha um serviço",
+    link: "/servicos",
   },
   {
     icon: "building",
     text: "Agências Parceiras",
     link: "/parceiros",
-  },
-  {
-    icon: "clipboad-check",
-    text: "Nossos Serviços",
-    link: "/servicos",
   },
 ]
 
 const menuBKP = [
   {
     icon: "user-list",
-    text: "Coliser's",
+    text: "Colisers",
     link: "/profissionais",
+  },
+  {
+    icon: "clipboad-check",
+    text: "Escolha um serviço",
+    link: "/servicos",
   },
   {
     icon: "building",
     text: "Agências Parceiras",
     link: "/parceiros",
-  },
-  {
-    icon: "clipboad-check",
-    text: "Nossos Serviços",
-    link: "/servicos",
   },
   {
     icon: "dashlite",
