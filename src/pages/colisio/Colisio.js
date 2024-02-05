@@ -7,6 +7,7 @@ import {
     ModalFooter,
     ModalHeader
 } from "reactstrap";
+// import { Modal as Modal2 } from "reactstrap/lib/Modal";
 import {
     Block,
     BlockBetween,
@@ -18,24 +19,47 @@ import {
     ReactDataTable,
     UserAvatar
 } from "../../components/Component";
-
 import Icon from "../../components/icon/Icon";
 import Content from "../../layout/content/Content";
 import Head from "../../layout/head/Head";
-import { findUpper } from "../../utils/Utils";
 import { } from "../components/table/TableData";
 
 
 const Colisio = () => {
 
     // console.log(process.env.PUBLIC_URL)
-
+    const [userIp, setUserIp] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
     const [dadosColiser, setDadosColiser] = useState(null)
     const [isOpen, setIsOpen] = useState(false);
     const toggle = (dadosColiser) => {
         setDadosColiser(dadosColiser)
         setIsOpen(!isOpen)
     };
+
+
+    useEffect(() => {
+        // Obter o IP do usuário
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                // setUserIp(data.ip)
+                console.log(data.ip)
+            })
+            .catch(error => console.error('Erro ao obter o IP:', error));
+
+        // Obter a URL atual
+        const currentUrl = window.location.href;
+        console.log("URL atual:", currentUrl);
+
+        // Obter o User-Agent
+        const userAgent = navigator.userAgent;
+        console.log("User-Agent:", userAgent);
+        
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 3000); // Este exemplo usa um timer de 3 segundos.
+    }, []);
 
     // faz uma funcao de useefect
     // useEffect(() => {
@@ -101,7 +125,7 @@ podemos conversar ?`);
                             {
                                 (row.servico).includes(',') === true ? (
                                     servicosSeparados(row.servico)
-                                ) : 
+                                ) :
                                     <span className="d-flex justify-content-start">{row.servico}</span>
                             }
                         </div>
@@ -118,12 +142,12 @@ podemos conversar ?`);
                 <span className="tb-amount">
                     {/* {
                         row.portfolio === '' ? <span>Não informado</span> : ( */}
-                            <Button className="btn-dim" onClick={() => {
-                                window.open(row.portfolio, '_blank')
-                            }}>
-                                <Icon className='me-1' name="eye" />
-                                Clique
-                            </Button>
+                    <Button className="btn-dim" onClick={() => {
+                        window.open(row.portfolio, '_blank')
+                    }}>
+                        <Icon className='me-1' name="eye" />
+                        Clique
+                    </Button>
                     {/* //     )
                     // } */}
                 </span>
@@ -138,27 +162,6 @@ podemos conversar ?`);
             cell: (row) => <span>{row.experiencia}</span>,
             hide: "md",
         },
-        // {
-        //     name: "Formação Acadêmica",
-        //     selector: (row) => row.form_academica,
-        //     // sortable: true,
-        //     cell: (row) => <span>{row.form_academica}</span>,
-        //     hide: "lg",
-        // },
-        // {
-        //     name: "Status",
-        //     selector: (row) => row.status,
-        //     sortable: true,
-        //     hide: "sm",
-        //     cell: (row) => (
-        //         <span
-        //             className={`tb-status ms-1 text-${row.status === "Active" ? "success" : row.status === "Pending" ? "warning" : "danger"
-        //                 }`}
-        //         >
-        //             {row.status}
-        //         </span>
-        //     ),
-        // },
     ];
 
     const userData = [
@@ -576,58 +579,84 @@ podemos conversar ?`);
     return (
         <>
             <Head title="Colisio | Profissionais" />
-            <Content page="component">
-                <BlockHead size="lg" className='p-0' wide="sm">
-                    <BlockBetween className="g-3">
-                        <BlockContent>
-                            <BlockTitle style={{color: '#05B055'}}>Bem-vindos a Colisio</BlockTitle>
-                            <BlockDes className="text-soft">
-                                <p>Tenha acesso rápido aos COLISERs (profissionais de seu interesse), com isso economize tempo e burocracia nos serviços que você contrata.</p>
-                            </BlockDes>
-                        </BlockContent>
-                    </BlockBetween>
-                    {/* <BlockTitle tag="h2" className="fw-normal mb-0">
-                            Bem vindos a Colisio
-                        </BlockTitle>
+            {isLoading && (
+                <div 
+                style={{ 
+                    position: 'fixed', 
+                    top: 0,
+                    left: 0,
+                    width: "100vw",
+                    height: "100vh",
+                    display: "flex", 
+                    alignItems: "center", 
+                    justifyContent: "center",
+                    backgroundColor: "white",
+                    zIndex: 9999,
+                    border: 'none'
+                }}
+            >
+                <div className="col-10 col-sm-2 col-md-2 col-lg-2">
+                    <video 
+                        autoPlay 
+                        loop 
+                        muted 
+                        style={{ 
+                            width: "100%", // O vídeo agora ocupa 100% da largura do container col-
+                            height: "auto",
+                            border: 'none'
+                        }}
+                    >
+                        <source src={`${process.env.PUBLIC_URL}/loadingColisio.mp4`} type="video/mp4" />
+                        Seu navegador não suporta vídeos.
+                    </video>
+                </div>
+            </div>
+            
+            
+            )}
+            {!isLoading && (
+                <Content page="component">
+                    <BlockHead size="lg" className='p-0' wide="sm">
+                        <BlockBetween className="g-3">
+                            <BlockContent>
+                                <BlockTitle style={{ color: '#05B055' }}>Bem-vindos a Colisio</BlockTitle>
+                                <BlockDes className="text-soft">
+                                    <p>Tenha acesso rápido aos COLISERs (profissionais de seu interesse), com isso economize tempo e burocracia nos serviços que você contrata.</p>
+                                </BlockDes>
+                            </BlockContent>
+                        </BlockBetween>
                         <BlockDes>
-                            <p className="mt-0 mb-0">
-                                Tenha acesso rápido aos profissionais de seu interesse, E economize tempo e burocracia
-                                contrate um coliser.
+                            <p className="text-soft mt-3 mb-0">
+                                Caso queira buscar por um serviço sem COLISER (profissional) específico, clique abaixo:
                             </p>
-                        </BlockDes> */}
-                    <BlockDes>
-                        <p className="text-soft mt-3 mb-0">
-                            Caso queira buscar por um serviço sem COLISER (profissional) específico, clique abaixo:
-                        </p>
-                        <Link to="/colisio/servicos" style={{borderColor: ''}} className="btn btn-success d-flex justify-content-start col-lg-5" p='0' m='0' color="dark">
-                            {/* <Button outline className="btn-dim d-flex justify-content-start" p='0' m='0' color="dark"> */}
-                                <Icon style={{color: ''}} name="curve-down-right" />
-                                <span style={{color: ''}}>Visualizar serviços disponíveis</span>
-                            {/* </Button> */}
-                        </Link>
-                    </BlockDes>
-                </BlockHead>
-
-                <Block size="lg" className='p-0'>
-                    <BlockHead className='p-0'>
-                        <BlockDes>
-                            <p className="text-soft mt-4 mb-0">
-                                Caso queira buscar um COLISER ou saber mais sobre cada um, veja a lista abaixo e clique para ver mais:
-                            </p>
+                            <Link to="/colisio/servicos" style={{ borderColor: '' }} className="btn btn-success d-flex justify-content-start col-lg-5" p='0' m='0' color="dark">
+                                <Icon style={{ color: '' }} name="curve-down-right" />
+                                <span style={{ color: '' }}>Visualizar serviços disponíveis</span>
+                            </Link>
                         </BlockDes>
                     </BlockHead>
 
-                    <PreviewCard>
-                        <ReactDataTable
-                            data={userData}
-                            columns={dataTableColumns2}
-                            pagination
-                            className="nk-tb-list"
-                        // selectableRows
-                        />
-                    </PreviewCard>
-                </Block>
-            </Content>
+                    <Block size="lg" className='p-0'>
+                        <BlockHead className='p-0'>
+                            <BlockDes>
+                                <p className="text-soft mt-4 mb-0">
+                                    Caso queira buscar um COLISER ou saber mais sobre cada um, veja a lista abaixo e clique para ver mais:
+                                </p>
+                            </BlockDes>
+                        </BlockHead>
+
+                        <PreviewCard>
+                            <ReactDataTable
+                                data={userData}
+                                columns={dataTableColumns2}
+                                pagination
+                                className="nk-tb-list"
+                            // selectableRows
+                            />
+                        </PreviewCard>
+                    </Block>
+                </Content>
+            )}
             <Modal className="modal-lg" isOpen={isOpen} toggle={toggle} backdrop='static'>
                 <ModalHeader
                     toggle={toggle}
@@ -643,7 +672,6 @@ podemos conversar ?`);
                     Dados Coliser
                 </ModalHeader>
                 <ModalBody>
-                    {/* <div className="card-inner"> */}
                     {
                         dadosColiser === null ? (
                             <Block>
@@ -662,44 +690,22 @@ podemos conversar ?`);
                                             <span className="profile-ud-value">{dadosColiser.servico}</span>
                                         </div>
                                     </div>
-                                    {/* <div className="profile-ud-item">
-                                        <div className="profile-ud wider">
-                                            <span className="profile-ud-label">Email</span>
-                                            <span className="profile-ud-value">{dadosColiser.email}</span>
-                                        </div>
-                                    </div> */}
                                     <div className="profile-ud-item">
                                         <div className="profile-ud wider">
                                             <span className="profile-ud-label">Experiência</span>
                                             <span className="profile-ud-value">{dadosColiser.experiencia}</span>
                                         </div>
                                     </div>
-                                    {/* <div className="profile-ud-item">
-                                        <div className="profile-ud wider">
-                                            <span className="profile-ud-label">Certificados</span>
-                                            <span className="profile-ud-value">{dadosColiser.cert_qualif}</span>
-                                        </div>
-                                    </div> */}
-                                    {/* <div className="profile-ud-item">
-                                        <div className="profile-ud wider">
-                                            <span className="profile-ud-label">Disponibilidade</span>
-                                            <span className="profile-ud-value">{dadosColiser.disponibilidade}</span>
-                                        </div>
-                                    </div> */}
                                     <div className="profile-ud-item">
                                         <div className="profile-ud wider">
                                             <span className="profile-ud-label">Portfólio</span>
                                             <span className="profile-ud-value">
-                                            {/* {
-                                                dadosColiser.portfolio === '' ? <span>Não informado</span> : ( */}
-                                                    <Button className="btn-dim" onClick={() => {
-                                                        window.open(dadosColiser.portfolio, '_blank')
-                                                    }}>
-                                                        <Icon className='me-1' name="eye" />
-                                                        Clique
-                                                    </Button>
-                                                {/* )
-                                            } */}
+                                                <Button className="btn-dim" onClick={() => {
+                                                    window.open(dadosColiser.portfolio, '_blank')
+                                                }}>
+                                                    <Icon className='me-1' name="eye" />
+                                                    Clique
+                                                </Button>
                                             </span>
                                         </div>
                                     </div>
@@ -707,60 +713,20 @@ podemos conversar ?`);
                             </Block>
                         )
                     }
-
-                    {/* <Block>
-                            <BlockHead className="nk-block-head-line">
-                                <BlockTitle tag="h6" className="overline-title text-base">
-                                    Additional Information
-                                </BlockTitle>
-                            </BlockHead>
-                            <div className="profile-ud-list">
-                                <div className="profile-ud-item">
-                                    <div className="profile-ud wider">
-                                        <span className="profile-ud-label">Joining Date</span>
-                                        <span className="profile-ud-value">08-16-2018 09:04PM</span>
-                                    </div>
-                                </div>
-                                <div className="profile-ud-item">
-                                    <div className="profile-ud wider">
-                                        <span className="profile-ud-label">Reg Method</span>
-                                        <span className="profile-ud-value">Email</span>
-                                    </div>
-                                </div>
-                                <div className="profile-ud-item">
-                                    <div className="profile-ud wider">
-                                        <span className="profile-ud-label">Country</span>
-                                        <span className="profile-ud-value">teste</span>
-                                    </div>
-                                </div>
-                                <div className="profile-ud-item">
-                                    <div className="profile-ud wider">
-                                        <span className="profile-ud-label">Nationality</span>
-                                        <span className="profile-ud-value">teste</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </Block> */}
-
-                    {/* <div className="nk-divider divider md"></div> */}
-                    {/* </div> */}
                 </ModalBody>
                 <ModalFooter className="bg-light d-flex flex-row">
-                    {/* <span className="sub-text">&copy; Colisio</span> */}
                     <Button className="btn-dim d-flex justify-content-start" p='0' m='0' color="secondary" onClick={
                         () => {
                             toggle()
                             setDadosColiser(null)
                         }
                     }>
-                        {/* <Icon name="list-thumb" /> */}
                         <Icon name="cross" />
                         <span>Fechar</span>
                     </Button>
                     <Button className="btn d-flex justify-content-start" p='0' m='0' color="success" onClick={() => {
                         enviarMensagem(dadosColiser)
                     }}>
-                        {/* <Icon name="list-thumb" /> */}
                         <Icon style={{ color: '#fff' }} name="curve-down-right" />
                         <span style={{ color: '#fff' }}>Tenho interesse</span>
                     </Button>
