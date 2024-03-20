@@ -1,4 +1,4 @@
-const menu = [
+const menuBKP = [
   {
     icon: "user-list",
     text: "Colisers",
@@ -16,7 +16,7 @@ const menu = [
   },
 ]
 
-const menuBKP = [
+const menu = [
   {
     icon: "user-list",
     text: "Colisers",

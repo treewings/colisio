@@ -11,6 +11,7 @@ import Invest from "../pages/Invest";
 import Colisio from "../pages/colisio/Colisio";
 import Parceiros from "../pages/colisio/ParceirosColisio";
 import Servicos from "../pages/colisio/ServicosColisio";
+import PaginaInicial from "../pages/colisio/PaginaInicial";
 import Accordian from "../pages/components/Accordions";
 import Alerts from "../pages/components/Alerts";
 import Avatar from "../pages/components/Avatar";
@@ -136,6 +137,7 @@ const Router = () => {
         <Routes>
             <Route path={`${process.env.PUBLIC_URL}`} element={<Layout />}>
                 <Route index element={<Colisio />}></Route>
+                <Route path="paginaInicial" element={<PaginaInicial />}></Route>
                 <Route path="profissionais" element={<Colisio />}></Route>
                 <Route path="parceiros" element={<Parceiros />}></Route>
                 <Route path="servicos" element={<Servicos />}></Route>
